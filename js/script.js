@@ -13,40 +13,41 @@ fetch(
     console.log(data);
     data.results.forEach((element) => {
       let divMovie = document.createElement("div");
-      let titleMovie = document.createElement("p");
+      divMovie.className = "item";
+      // let titleMovie = document.createElement("p");
       let imgMovie = document.createElement("img");
       imgMovie.src = "https://image.tmdb.org/t/p/w500" + element.poster_path;
-      titleMovie = element.title;
+      imgMovie.className = "d-block w-100";
+      // titleMovie = element.title;
       containerMovie.append(divMovie);
-      divMovie.append(imgMovie, titleMovie);
-      divMovie.className = "movie";
+      divMovie.append(imgMovie);
     });
   })
   .catch((error) => {
     console.log(error);
   });
 
-fetch(
-  `https://api.themoviedb.org/3/tv/popular?api_key=3dba613b1899e55a6567cb728761bb94&language=en-US&page=1`
-)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-    // console.log(data.results);
-    console.log(data);
-    data.results.forEach((element) => {
-      let divSerie = document.createElement("div");
-      let nameSerie = document.createElement("p");
-      let imgSerie = document.createElement("img");
-      imgSerie.src = "https://image.tmdb.org/t/p/w500" + element.poster_path;
-      nameSerie = element.name;
-      containerSerie.append(divSerie);
-      divSerie.append(imgSerie, nameSerie);
-      divSerie.className = "serie";
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
+// fetch(
+//   `https://api.themoviedb.org/3/tv/popular?api_key=3dba613b1899e55a6567cb728761bb94&language=en-US&page=1`
+// )
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => {
+//     // console.log(data.results);
+//     console.log(data);
+//     data.results.forEach((element) => {
+//       let divSerie = document.createElement("div");
+//       let nameSerie = document.createElement("p");
+//       let imgSerie = document.createElement("img");
+//       imgSerie.src = "https://image.tmdb.org/t/p/w500" + element.poster_path;
+//       nameSerie = element.name;
+//       containerSerie.append(divSerie);
+//       divSerie.append(imgSerie, nameSerie);
+//       divSerie.className = "serie";
+//     });
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 // }
