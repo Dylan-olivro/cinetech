@@ -10,16 +10,18 @@ fetch(
   })
   .then((data) => {
     // console.log(data.results);
-    console.log(data);
+    // console.log(data);
     data.results.forEach((element) => {
       let divMovie = document.createElement("div");
-      let titleMovie = document.createElement("p");
+      divMovie.className = "item";
+      // let titleMovie = document.createElement("p");
       let imgMovie = document.createElement("img");
-      imgMovie.src = "https://image.tmdb.org/t/p/w500" + element.poster_path;
-      titleMovie = element.title;
+      imgMovie.src =
+        "https://image.tmdb.org/t/p/original" + element.backdrop_path;
+      imgMovie.className = "d-block w-100";
+      // titleMovie = element.title;
       containerMovie.append(divMovie);
-      divMovie.append(imgMovie, titleMovie);
-      divMovie.className = "movie";
+      divMovie.append(imgMovie);
     });
   })
   .catch((error) => {
@@ -37,13 +39,14 @@ fetch(
     console.log(data);
     data.results.forEach((element) => {
       let divSerie = document.createElement("div");
-      let nameSerie = document.createElement("p");
+      divSerie.className = "item";
+      // let nameSerie = document.createElement("p");
       let imgSerie = document.createElement("img");
-      imgSerie.src = "https://image.tmdb.org/t/p/w500" + element.poster_path;
-      nameSerie = element.name;
+      imgSerie.src =
+        "https://image.tmdb.org/t/p/original" + element.backdrop_path;
+      // nameSerie = element.name;
       containerSerie.append(divSerie);
-      divSerie.append(imgSerie, nameSerie);
-      divSerie.className = "serie";
+      divSerie.append(imgSerie);
     });
   })
   .catch((error) => {

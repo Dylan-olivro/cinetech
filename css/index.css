@@ -1,9 +1,7 @@
 img {
-  width: 100%;
-  object-fit: cover;
-  height: 700px !important;
+  width: 100px;
 }
-/* .movie,
+.movie,
 .serie {
   display: flex;
   flex-direction: column;
@@ -19,4 +17,4 @@ img {
 }
 #containerSerie {
   background-color: blue;
-} */
+}
