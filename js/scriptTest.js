@@ -1,10 +1,10 @@
-// 3dba613b1899e55a6567cb728761bb94
 // for (const i = 1; i <= 551; i++) {
+const API_key = "3dba613b1899e55a6567cb728761bb94";
+const API_image = "https://image.tmdb.org/t/p/original";
+const API = "https://api.themoviedb.org/3/";
 
 // FETCH POUR LES FILMS QUI VIENNENT DE SORTIR
-fetch(
-  `https://api.themoviedb.org/3/movie/upcoming?api_key=3dba613b1899e55a6567cb728761bb94&language=en-US&page=1`
-)
+fetch(`${API}movie/upcoming?api_key=${API_key}&language=en-US&page=1`)
   .then((response) => {
     return response.json();
   })
@@ -19,12 +19,11 @@ fetch(
       const titleMovie = document.createElement("h3");
       titleMovie.textContent = element.title;
 
-      divMovie.className = "item";
+      divMovie.className = "carousel-item";
       imgMovie.className = "d-block w-100";
-      captionMovie.className = "carousel-caption";
+      captionMovie.className = "carousel-caption d-none d-md-block";
 
-      imgMovie.src =
-        "https://image.tmdb.org/t/p/original" + element.backdrop_path;
+      imgMovie.src = API_image + element.backdrop_path;
 
       containerMovie.append(divMovie);
       divMovie.append(imgMovie, captionMovie);
@@ -37,7 +36,7 @@ fetch(
 
 // FETCH POUR LES SERIES LES PLUS POPULAIRES
 fetch(
-  `https://api.themoviedb.org/3/tv/popular?api_key=3dba613b1899e55a6567cb728761bb94&language=en-US&page=1`
+  `https://api.themoviedb.org/3/tv/popular?api_key=${API_key}&language=en-US&page=1`
 )
   .then((response) => {
     return response.json();
@@ -53,12 +52,11 @@ fetch(
       const nameSerie = document.createElement("h3");
       nameSerie.textContent = element.name;
 
-      divSerie.className = "item";
+      divSerie.className = "carousel-item";
       imgSerie.className = "d-block w-100";
-      captionSerie.className = "carousel-caption";
+      captionSerie.className = "carousel-caption d-none d-md-block";
 
-      imgSerie.src =
-        "https://image.tmdb.org/t/p/original" + element.backdrop_path;
+      imgSerie.src = API_image + element.backdrop_path;
 
       containerSerie.append(divSerie);
       divSerie.append(imgSerie, captionSerie);

@@ -37,21 +37,15 @@ ob_start('ob_gzhandler');
     <div class="container">
         <h2>Carousel Example</h2>
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-            </ol> -->
+
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" id="containerMovie">
                 <div class="item active">
                     <img src="./assets/image-form.jpg" alt="Los Angeles" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Los Angeles</h3>
+                    </div>
                 </div>
             </div>
 
@@ -71,21 +65,14 @@ ob_start('ob_gzhandler');
     <div class="container">
         <h2>Carousel Example</h2>
         <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <!-- <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-                <li data-target="#myCarousel" data-slide-to="3"></li>
-                <li data-target="#myCarousel" data-slide-to="4"></li>
-                <li data-target="#myCarousel" data-slide-to="5"></li>
-                <li data-target="#myCarousel" data-slide-to="6"></li>
-            </ol> -->
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner" id="containerSerie">
                 <div class="item active">
                     <img src="./assets/image-form.jpg" alt="Los Angeles" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>Los Angeles</h3>
+                    </div>
                 </div>
             </div>
 

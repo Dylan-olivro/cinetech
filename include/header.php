@@ -11,17 +11,21 @@
                     <?php
                     if (!isset($_SESSION['id'])) { ?>
                         <a href="index.php" class="nav-link">Home</a>
+                        <a href="test.php" class="nav-link">Carousel</a>
+                        <a href="carouselTest.php" class="nav-link">Carousel 5.3</a>
                         <a href="signup.php" class="nav-link">Sign up</a>
                         <a href="login.php" class="nav-link">Login</a>
                     <?php } else { ?>
                         <a href="index.php" class="nav-link">Home</a>
+                        <a href="test.php" class="nav-link">Carousel</a>
+                        <a href="carouselTest.php" class="nav-link">Carousel 5.3</a>
                         <!-- <a href="calendar.php" class="nav-link">Calendar</a>
                         <a href="history.php" class="nav-link">History</a> -->
                         <?php if ($_SESSION['role'] > 0) { ?>
                             <!-- <a href="checking.php" class="nav-link">Checking</a>
                             <a href="admin.php" class="nav-link">Admin</a> -->
                         <?php } ?>
-                        <a href="disconnect.php" class="nav-link">Logout</a>
+                        <a href="./include/disconnect.php" class="nav-link">Logout</a>
 
                     <?php
                     }
