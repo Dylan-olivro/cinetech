@@ -34,7 +34,7 @@ ob_start('ob_gzhandler');
 
 
     <div id="carouselMovie" class="carousel slide">
-        <div class="carousel-inner" id="containerMovie">
+        <div class="carousel-inner" id="containermovie">
             <div class="carousel-item active">
                 <img src="./assets/image-form.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
@@ -55,7 +55,7 @@ ob_start('ob_gzhandler');
     </div>
 
     <div id="carouselSerie" class="carousel slide">
-        <div class="carousel-inner" id="containerSerie">
+        <div class="carousel-inner" id="containertv">
             <div class="carousel-item active">
                 <img src="./assets/image-form.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
