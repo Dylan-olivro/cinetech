@@ -13,8 +13,8 @@ ob_start('ob_gzhandler');
     <link rel="icon" href="#">
     <title>Index</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/index.css">
     <!-- JAVASCRIPT -->
     <script src="./js/search.js" defer></script>
     <script src="./js/index.js" defer></script>

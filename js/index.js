@@ -5,7 +5,7 @@ function showMedia(type) {
     })
     .then((data) => {
       data.results.forEach((element) => {
-        console.log(data);
+        // console.log(data);
         const containerMedia = document.getElementById(`container${type}`);
         const linkMedia = document.createElement("a");
         const divMedia = document.createElement("div");

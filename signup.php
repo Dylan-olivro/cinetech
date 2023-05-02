@@ -7,8 +7,8 @@ if (isset($_SESSION['id'])) {
 }
 
 if (isset($_POST['envoi'])) {
-    $username = htmlspecialchars($_POST['username']);
-    $email = htmlspecialchars($_POST['email']);
+    $username = trim(htmlspecialchars($_POST['username']));
+    $email = trim(htmlspecialchars($_POST['email']));
     $password = $_POST['password'];
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -29,7 +29,9 @@ if (isset($_POST['envoi'])) {
     <title>Sign Up</title>
     <link rel="icon" href="#">
     <!-- CSS -->
+    <link rel="stylesheet" href="./css/header.css">
     <!-- JAVASCRIPT -->
+    <script src="./js/search.js" defer></script>
     <script src="./js/signup.js" defer></script>
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">

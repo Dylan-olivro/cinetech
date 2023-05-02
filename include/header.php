@@ -5,7 +5,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse  justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
                     <?php
                     if (!isset($_SESSION['id'])) { ?>
@@ -13,6 +13,7 @@
                         <!-- <a href="detail.php" class="nav-link">Detail</a> -->
                         <a href="signup.php" class="nav-link">Sign up</a>
                         <a href="login.php" class="nav-link">Login</a>
+                        <a href="movie.php" class="nav-link">Movie</a>
                         <!-- <a href="test.php" class="nav-link">test</a> -->
 
                     <?php } else { ?>
@@ -28,14 +29,14 @@
                     }
                     ?>
                 </div>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" id="search-bar" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
+                    <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+                    <div id="result"></div>
+                </form>
             </div>
 
             <!-- SEARCH BAR -->
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" id="search-bar" type="search" placeholder="Search" aria-label="Search" autocomplete="off">
-                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
-                <div id="result"></div>
-            </form>
         </div>
     </nav>
 </header>

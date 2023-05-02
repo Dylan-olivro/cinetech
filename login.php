@@ -18,8 +18,10 @@ if (isset($_SESSION['id'])) {
     <link rel="icon" href="#">
     <title>Login</title>
     <!-- CSS -->
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./styles/style.css">
     <!-- JAVASCRIPT -->
+    <script src="./js/search.js" defer></script>
     <script src="./js/login.js" defer></script>
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">

@@ -1,0 +1,55 @@
+.divActor {
+  display: flex;
+}
+.divSimilar {
+  display: flex;
+}
+
+.containerDiv {
+  display: flex;
+  border: 3px dashed blue;
+}
+
+.divInfo {
+  border: 3px dashed green;
+  /* background-color: red; */
+  flex: 1.5;
+}
+
+.divTest {
+  border: 3px dashed purple;
+  /* background-color: yellow; */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.divActor,
+.divSimilar {
+  overflow: auto;
+}
+
+/* width */
+.divActor::-webkit-scrollbar,
+.divSimilar::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+.divActor::-webkit-scrollbar-track,
+.divSimilar::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+}
+
+/* Handle */
+.divActor::-webkit-scrollbar-thumb,
+.divSimilar::-webkit-scrollbar-thumb {
+  /* width: 80%; */
+  background: red;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+/* .divActor::-webkit-scrollbar-thumb:hover {
+  background: yellow;
+} */
