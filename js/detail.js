@@ -15,23 +15,6 @@ function getType() {
   return type;
 }
 
-// import request from "request";
-
-// request(
-//   `${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`,
-//   (error, response, body) => {
-//     if (error) {
-//       console.error("error:", error);
-//     } else {
-//       console.log("statusCode:", response && response.statusCode);
-//       console.log("body:", body);
-//     }
-//   }
-// );
-// console.log(
-//   fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`).then
-// );
-
 let containerDiv = document.createElement("div");
 containerDiv.className = "containerDiv";
 
@@ -59,7 +42,6 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
   })
   .then((data) => {
     // console.log(data);
-
     for (let key in data) {
       if (data.success != false) {
         let p = document.createElement("p");
@@ -120,6 +102,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
       form.setAttribute("method", "post");
       buttonFavori.setAttribute("type", "sumbit");
       buttonFavori.setAttribute("name", "favoris");
+      buttonFavori.className = "btnFavoris";
       buttonFavori.textContent = "Favoris";
 
       form.append(buttonFavori);
@@ -212,7 +195,7 @@ if (getType() === "movie" || getType() === "tv") {
     .then((data) => {
       // console.log(data);
       data.results.forEach((element) => {
-        console.log(element);
+        // console.log(element);
         let linkSimilar = document.createElement("a");
         let similar = document.createElement("div");
 
@@ -240,3 +223,16 @@ if (getType() === "movie" || getType() === "tv") {
     });
 }
 // FETCH POUR LES COMMENTAIRES
+// FETCH FAVORIS
+fetch("./traitement_favoris.php")
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    data.forEach((element) => {
+      if (element.id_media == getId()) {
+        let btnFavoris = document.querySelector(".btnFavoris");
+        btnFavoris.style = "background-cgiolor: red";
+      }
+    });
+  });

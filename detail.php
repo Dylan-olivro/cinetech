@@ -1,6 +1,25 @@
 <?php
 require_once("./include/bd.php");
 ob_start('ob_gzhandler');
+
+// FAVORIS
+$recupFavoris = $bdd->prepare('SELECT * FROM favoris WHERE id_user = ? AND id_media = ?');
+$recupFavoris->execute([$_SESSION['user']['id'], $_GET['id']]);
+$resultFavoris = $recupFavoris->fetch(PDO::FETCH_ASSOC);
+
+if (isset($_POST['favoris'])) {
+
+    if (empty($resultFavoris)) {
+        $insertFavoris = $bdd->prepare('INSERT INTO favoris (id_media,id_user,type) VALUES (?,?,?)');
+        $insertFavoris->execute([$_GET['id'], $_SESSION['user']['id'], $_GET['type']]);
+        header('Location: ./detail.php?id=' . $_GET['id'] . '&type=' . $_GET['type'] . '');
+    } else {
+        $deleteFavoris = $bdd->prepare("DELETE FROM favoris WHERE id_user = ? AND id_media = ?");
+        $deleteFavoris->execute([$_SESSION['user']['id'], $_GET['id']]);
+        header('Location: ./detail.php?id=' . $_GET['id'] . '&type=' . $_GET['type'] . '');
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -39,62 +58,33 @@ ob_start('ob_gzhandler');
 
 
             <?php
-            // var_dump($_SESSION);
             if ($_SESSION['user']) {
                 if (isset($_POST['submit'])) {
                     $insertComment = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_media)VALUES (?,?,?)");
                     $insertComment->execute([$_POST['commentaire'], $_SESSION['user']['id'], $_GET['id']]);
-                    // header('Location: detail.php');
-                    // var_dump($bdd->lastInsertId());
-                    // $insertLiaison = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_film)VALUES (?,?,?)");
-                    // $insertLiaison->execute([$_POST['commentaire'], $_SESSION['user']['id'], $_GET['id']]);
                 }
             }
 
             $recupComment = $bdd->prepare("SELECT * FROM users INNER JOIN comment ON users.id = comment.id_user WHERE id_media = ?");
             $recupComment->execute([$_GET['id']]);
             $result = $recupComment->fetchAll(PDO::FETCH_ASSOC);
-            // var_dump($result);
-            // $result2 = $recupResponse->fetchAll(PDO::FETCH_ASSOC);
 
             if (isset($_POST['repondre'])) {
                 $insertComment2 = $bdd->prepare("INSERT INTO responses (response,id_user)VALUES (?,?)");
                 $insertComment2->execute([$_POST['response'], $_SESSION['user']['id']]);
-                // var_dump($bdd->lastInsertId());
 
                 $insertResponse = $bdd->prepare("INSERT INTO liaison_comment (id_comment,id_parent)VALUES (?,?)");
                 $insertResponse->execute([$bdd->lastInsertId(), $_POST['id_parent']]);
-                // header('Location: detail.php');
-                // var_dump($bdd->lastInsertId());
-                // $insertLiaison = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_film)VALUES (?,?,?)");
-                // $insertLiaison->execute([$_POST['commentaire'], $_SESSION['user']['id'], $_GET['id']]);
             }
 
             foreach ($result as $key) {
-                // var_dump($key['id']);
-            ?>
-
-
-
-                <?php
-
                 $recupResponse = $bdd->prepare("SELECT liaison_comment.id_parent, liaison_comment.id_comment, responses.*, users.username FROM liaison_comment INNER JOIN responses ON liaison_comment.id_comment = responses.id INNER JOIN users ON users.id = responses.id_user WHERE liaison_comment.id_parent = ?");
 
                 $recupResponse->execute([$key['id']]);
                 $resul2 = $recupResponse->fetchAll(PDO::FETCH_ASSOC);
-                // var_dump($resul2);
-
-                // var_dump($_POST);
-                // foreach ($result2 as $value) {
-                // var_dump($value);
-                // var_dump($value);
-
-                # code...
-                ?>
+            ?>
                 <div style="border: 1px solid black;">
-
                     <div>
-
                         <div>
                             <h5><?= $key['username']; ?></h5>
                             <p><?= $key['commentaire']; ?></p>
@@ -104,24 +94,17 @@ ob_start('ob_gzhandler');
                                 <input type="submit" name="repondre" value="repondre">
                             </form>
                         </div>
-
                         <div>
-                            <?php
-                            foreach ($resul2 as $key2) { ?>
+                            <?php foreach ($resul2 as $key2) { ?>
                                 <div>
                                     <p><?= $key2['username'] ?></p>
                                     <p><?= $key2['response'] ?></p>
                                 </div>
-                            <?php
-                            }
-                            ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
-            <?php
-                // }
-            }
-            ?>
+            <?php } ?>
         </section>
     </main>
 
