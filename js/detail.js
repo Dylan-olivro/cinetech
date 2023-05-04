@@ -1,4 +1,5 @@
 const detail = document.getElementById("detail");
+const detailMovie = document.getElementById("detailMovie");
 const imgURL = "https://image.tmdb.org/t/p/original/";
 
 function getId() {
@@ -40,16 +41,16 @@ divTest.className = "divTest";
 let divInfo = document.createElement("div");
 divInfo.className = "divInfo";
 
-detail.append(containerDiv);
+detailMovie.append(containerDiv);
 containerDiv.append(divTest, divInfo);
 
 let divCast = document.createElement("div");
 divCast.className = "divCast";
-detail.append(divCast);
+detailMovie.append(divCast);
 
 let divSimilar = document.createElement("div");
 divSimilar.className = "divSimilar";
-detail.append(divSimilar);
+detailMovie.append(divSimilar);
 
 // FETCH POUR LES DETAILS DU FILM OU DE LA SERIE
 fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
@@ -58,6 +59,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
   })
   .then((data) => {
     // console.log(data);
+
     for (let key in data) {
       if (data.success != false) {
         let p = document.createElement("p");
@@ -110,6 +112,18 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
           }
         }
       }
+    }
+    if (getType() === "movie" || getType() === "tv") {
+      let form = document.createElement("form");
+      let buttonFavori = document.createElement("button");
+
+      form.setAttribute("method", "post");
+      buttonFavori.setAttribute("type", "sumbit");
+      buttonFavori.setAttribute("name", "favoris");
+      buttonFavori.textContent = "Favoris";
+
+      form.append(buttonFavori);
+      divInfo.append(form);
     }
   })
   .catch((error) => {
@@ -171,7 +185,7 @@ fetch(
           // console.log(element);
           let img = document.createElement("img");
           let actorName = document.createElement("p");
-          
+
           img.src = imgURL + element.profile_path;
           img.style = "width:200px";
           actor.append(img);

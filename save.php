@@ -42,7 +42,7 @@ ob_start('ob_gzhandler');
             // var_dump($_SESSION);
             if ($_SESSION['user']) {
                 if (isset($_POST['submit'])) {
-                    $insertComment = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_media)VALUES (?,?,?)");
+                    $insertComment = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_film)VALUES (?,?,?)");
                     $insertComment->execute([$_POST['commentaire'], $_SESSION['user']['id'], $_GET['id']]);
                     // header('Location: detail.php');
                     // var_dump($bdd->lastInsertId());
@@ -69,12 +69,15 @@ ob_start('ob_gzhandler');
                 // $insertLiaison = $bdd->prepare("INSERT INTO comment (commentaire,id_user,id_film)VALUES (?,?,?)");
                 // $insertLiaison->execute([$_POST['commentaire'], $_SESSION['user']['id'], $_GET['id']]);
             }
-
             foreach ($result as $key) {
                 // var_dump($key['id']);
             ?>
 
-
+                <form action="" method="POST">
+                    <input type="text" name="response" placeholder="Comment...">
+                    <input type="hidden" name="id_parent" value="<?= $key['id']; ?>">
+                    <input type="submit" name="repondre" value="repondre">
+                </form>
 
                 <?php
 
@@ -94,29 +97,17 @@ ob_start('ob_gzhandler');
                 <div style="border: 1px solid black;">
 
                     <div>
-
-                        <div>
-                            <h5><?= $key['username']; ?></h5>
-                            <p><?= $key['commentaire']; ?></p>
-                            <form action="" method="POST">
-                                <input type="text" name="response" placeholder="Comment...">
-                                <input type="hidden" name="id_parent" value="<?= $key['id']; ?>">
-                                <input type="submit" name="repondre" value="repondre">
-                            </form>
-                        </div>
-
-                        <div>
-                            <?php
-                            foreach ($resul2 as $key2) { ?>
-                                <div>
-                                    <p><?= $key2['username'] ?></p>
-                                    <p><?= $key2['response'] ?></p>
-                                </div>
-                            <?php
-                            }
-                            ?>
-                        </div>
+                        <h5><?= $key['username']; ?></h5>
+                        <p><?= $key['commentaire']; ?></p>
+                        <?php
+                        foreach ($resul2 as $key2) { ?>
+                            <p><?= $key2['username'] ?></p>
+                            <p><?= $key2['response'] ?></p>
+                        <?php
+                        }
+                        ?>
                     </div>
+
                 </div>
             <?php
                 // }

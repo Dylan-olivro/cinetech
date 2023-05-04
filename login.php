@@ -79,9 +79,9 @@ if (isset($_SESSION['id'])) {
                                             if ($result) {
                                                 $passwordHash = $result['password'];
                                                 if ($recupUser->rowCount() > 0 && password_verify($password, $passwordHash)) {
-                                                    $_SESSION['email'] = $email;
-                                                    $_SESSION['password'] = $password;
-                                                    $_SESSION = $result;
+                                                    // $_SESSION['email'] = $email;
+                                                    // $_SESSION['password'] = $password;
+                                                    $_SESSION['user'] = $result;
                                                     header("Location: index.php");
                                                 }
                                             }

@@ -1,0 +1,15 @@
+#filmPopular {
+  overflow: auto;
+  background-color: red;
+  display: flex;
+}
+#filmUpcoming {
+  overflow: auto;
+  background-color: red;
+  display: flex;
+}
+#topRatedFilm {
+  overflow: auto;
+  background-color: red;
+  display: flex;
+}

@@ -8,19 +8,20 @@
             <div class="collapse navbar-collapse  justify-content-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
                     <?php
-                    if (!isset($_SESSION['id'])) { ?>
+                    if (!isset($_SESSION['user']['id'])) { ?>
                         <a href="index.php" class="nav-link">Home</a>
                         <!-- <a href="detail.php" class="nav-link">Detail</a> -->
                         <a href="signup.php" class="nav-link">Sign up</a>
                         <a href="login.php" class="nav-link">Login</a>
                         <a href="movie.php" class="nav-link">Movie</a>
+                        <a href="serie.php" class="nav-link">Serie</a>
                         <!-- <a href="test.php" class="nav-link">test</a> -->
 
                     <?php } else { ?>
                         <a href="index.php" class="nav-link">Home</a>
                         <!-- <a href="detail.php" class="nav-link">Detail</a> -->
                         <!-- <a href="test.php" class="nav-link">test</a> -->
-                        <?php if ($_SESSION['role'] > 0) { ?>
+                        <?php if ($_SESSION['user']['role'] > 0) { ?>
                             <!-- ADMIN -->
                         <?php } ?>
                         <a href="./include/disconnect.php" class="nav-link">Logout</a>

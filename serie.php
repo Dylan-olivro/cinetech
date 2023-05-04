@@ -13,10 +13,10 @@ ob_start('ob_gzhandler');
     <title>Movie</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/movie.css">
+    <link rel="stylesheet" href="./css/serie.css">
     <!-- JAVASCRIPT -->
     <script src="./js/search.js" defer></script>
-    <script src="./js/movie.js" defer></script>
+    <script src="./js/serie.js" defer></script>
     <!-- BOOTSTRAP -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
@@ -30,7 +30,6 @@ ob_start('ob_gzhandler');
             <div id="film"></div>
             <div id="filmPopular"></div>
             <div id="filmUpcoming"></div>
-            <div id="topRatedFilm"></div>
         </div>
 
     </main>
