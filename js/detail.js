@@ -49,8 +49,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
           if (key == "poster_path" || key == "profile_path") {
             let img = document.createElement("img");
             img.src = imgURL + data[key];
-            img.style = "width:100%";
-            img.style = "height:600px";
+            // img.style = "width:100%";
 
             divTest.style = "padding: 0 1%";
 
@@ -73,7 +72,9 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
               key != "tagline" &&
               key != "vote_count" &&
               key != "original_title" &&
-              key != "gender"
+              key != "gender" &&
+              key != "original_language" &&
+              key != "original_name"
             ) {
               if (key == "runtime") {
                 let minutes = parseInt(data.runtime % 60, 10);
@@ -103,7 +104,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
       buttonFavori.setAttribute("type", "sumbit");
       buttonFavori.setAttribute("name", "favoris");
       buttonFavori.className = "btnFavoris";
-      buttonFavori.textContent = "Favoris";
+      buttonFavori.textContent = "Ajouter aux Favoris";
 
       form.append(buttonFavori);
       divInfo.append(form);
@@ -232,7 +233,9 @@ fetch("./traitement_favoris.php")
     data.forEach((element) => {
       if (element.id_media == getId()) {
         let btnFavoris = document.querySelector(".btnFavoris");
-        btnFavoris.style = "background-cgiolor: red";
+        btnFavoris.textContent = "Enlever des Favoris";
+        btnFavoris.style = "background-color: yellow";
+        // btnFavoris.style = "background-cgiolor: red";
       }
     });
   });
