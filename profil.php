@@ -13,7 +13,7 @@ ob_start('ob_gzhandler');
     <title>Index</title>
     <!-- CSS -->
     <link rel="stylesheet" href="./css/header.css">
-    <!-- <link rel="stylesheet" href="./css/profil.css"> -->
+    <link rel="stylesheet" href="./css/profil.css">
     <!-- JAVASCRIPT -->
     <script src="./js/search.js" defer></script>
     <script src="./js/profil.js" defer></script>
@@ -25,20 +25,17 @@ ob_start('ob_gzhandler');
 <body>
     <?php require_once('./include/header.php') ?>
     <main>
-        <div>
-
-        </div>
+        <section id="list_favoris">
+            <div id="movies">
+                <h3>Films</h3>
+                <div id="movies_list"></div>
+            </div>
+            <div id="series">
+                <h3>Series</h3>
+                <div id="series_list"></div>
+            </div>
+        </section>
     </main>
-    <?php
-    $recupFavoris = $bdd->prepare('SELECT * FROM favoris WHERE id_user = ?');
-    $recupFavoris->execute([$_SESSION['user']['id']]);
-    $resultFavoris = $recupFavoris->fetchAll(PDO::FETCH_ASSOC);
-    // var_dump($resultFavoris);
-
-    foreach ($resultFavoris as $key) {
-        # code...
-    }
-    ?>
 </body>
 
 </html>

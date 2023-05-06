@@ -1,87 +1,157 @@
+body {
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+header {
+  background-color: #fff;
+}
 main * {
   margin: 0 !important;
   padding: 0 !important;
+  /* border: 1px solid green; */
+}
+#castMedia,
+#similarMedia,
+#commentaireMedia {
+  padding: 2% !important;
+  background-color: #000;
   color: #fff;
-  border: 1px solid green;
 }
-.divActor {
+/* SECTION INFO */
+#detailMedia {
+  /* display: flex; */
+  height: 600px;
   display: flex;
+  justify-content: space-between;
 }
-.divSimilar {
+/* IMAGE ET BUTTON */
+#containerImage {
   display: flex;
+  padding: 2% 5% !important;
+}
+#containerImage img {
+  box-shadow: 5px 5px 10px;
 }
 
-.containerDiv {
-  display: flex;
-  border: 3px dashed blue;
-  padding: 2% 0 !important;
-}
-
-.divInfo {
-  border: 3px dashed green;
-  /* background-color: red; */
-  flex: 1.5;
+/* INFO DU FILM, DE LA SERIE OU DE LA PERSONNE */
+#infoMedia {
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  color: #000;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  /* align-items: center; */
+  border-radius: 10px;
+}
+#infoMedia p {
+  justify-content: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+#title {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1% !important;
+  font-weight: 600;
 }
 
-.divTest {
-  border: 3px dashed purple;
-  /* background-color: yellow; */
-  flex: 1;
-  display: flex;
-  justify-content: center;
+/* BOUTON FAVORIS */
+#formFavoris {
+  margin: auto 0 !important;
+  /* padding-left: clamp(20px, 1%, 1%) !important; */
 }
-.divActor,
-.divSimilar {
+#btnFavoris {
+  background-color: #000;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 5px !important;
+  margin: 20px auto !important;
+}
+#word_favoris {
+  color: #fff;
+  margin-left: 5px !important;
+}
+#info_favoris {
+  width: 20%;
+  margin: auto 5% !important;
+}
+
+/* DESCRIPTION OU BIOGRAPHIE */
+#div_overview_Biography {
+  background: linear-gradient(transparent, #000 20%);
+  color: #fff;
+  padding: 2% !important;
+}
+#title_overview {
+  font-size: 2rem;
+  margin-bottom: 1% !important;
+}
+/* #overview_Biography {
+} */
+
+/* SECTION CASTING AND SECTION SIMILAR*/
+#castMedia h3,
+#similarMedia h3 {
+  font-size: 2rem;
+  margin-bottom: 1% !important;
+}
+#castMedia a,
+#similarMedia a {
+  text-decoration: none;
+  color: #fff;
+}
+#castMedia img,
+#similarMedia img {
+  width: 200px;
+  height: 300px;
+  margin-right: 15px !important;
+}
+
+/* SECTION CASTING */
+#directorList {
+  display: flex;
+  overflow: auto;
+}
+#actorList {
+  display: flex;
   overflow: auto;
 }
 
+/* SECTION SIMILAR */
+#similarList {
+  display: flex;
+  overflow: auto;
+}
+
+/* SCROLL BAR HORIZONTAL */
 /* width */
-.divActor::-webkit-scrollbar,
-.divSimilar::-webkit-scrollbar {
+#directorList::-webkit-scrollbar,
+#actorList::-webkit-scrollbar,
+#similarList::-webkit-scrollbar {
   height: 10px;
 }
 
 /* Track */
-.divActor::-webkit-scrollbar-track,
-.divSimilar::-webkit-scrollbar-track {
+#directorList::-webkit-scrollbar-track,
+#actorList::-webkit-scrollbar-track,
+#similarList::-webkit-scrollbar-track {
   background: #000;
   border-radius: 10px;
 }
 
 /* Handle */
-.divActor::-webkit-scrollbar-thumb,
-.divSimilar::-webkit-scrollbar-thumb {
-  /* width: 80%; */
+#directorList::-webkit-scrollbar-thumb,
+#actorList::-webkit-scrollbar-thumb,
+#similarList::-webkit-scrollbar-thumb {
   background: red;
   border-radius: 10px;
 }
 
-/* Handle on hover */
-/* .divActor::-webkit-scrollbar-thumb:hover {
-  background: yellow;
-} */
-main {
-  background-color: #000;
-}
-.divTest img {
-  border-radius: 10px;
-  height: 600px;
-  /* width: 80%;
-  object-fit: contain; */
-  /* object-position: bottom; */
-}
-.divInfo p {
-  border: 1px solid white;
-  min-height: 50px;
-  display: flex;
-  align-items: center;
-
-  color: white;
-}
-button,
-input {
-  color: #000;
-}
+/* SECTION COMMENTAIRE */

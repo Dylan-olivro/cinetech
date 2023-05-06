@@ -1,0 +1,11 @@
+#list_favoris img {
+  width: 200px;
+}
+#movies_list {
+  display: flex;
+  overflow: auto;
+}
+#series_list {
+  overflow: auto;
+  display: flex;
+}
