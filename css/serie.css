@@ -1,14 +1,9 @@
-#filmPopular {
+#seriePopular {
   overflow: auto;
   background-color: red;
   display: flex;
 }
-#filmUpcoming {
-  overflow: auto;
-  background-color: red;
-  display: flex;
-}
-#topRatedFilm {
+#serietop_rated {
   overflow: auto;
   background-color: red;
   display: flex;

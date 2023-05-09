@@ -3,4 +3,17 @@
   position: absolute;
   top: 50px;
   background-color: #000;
+  /* overflow-y: scroll;
+  height: 100px; */
+}
+h5 {
+  color: #fff !important;
+}
+#username {
+  display: flex !important;
+  align-items: center;
+  margin-right: 10px !important;
+}
+#username i {
+  margin-right: 5px !important;
 }

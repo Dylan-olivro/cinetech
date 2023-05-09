@@ -1,12 +1,9 @@
-body {
+#detail {
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-header {
-  background-color: #fff;
-}
-main * {
+#detail * {
   margin: 0 !important;
   padding: 0 !important;
   /* border: 1px solid green; */
@@ -31,6 +28,7 @@ main * {
   padding: 2% 5% !important;
 }
 #containerImage img {
+  width: 375px;
   box-shadow: 5px 5px 10px;
 }
 
@@ -71,7 +69,7 @@ main * {
   border-radius: 10px;
   display: flex;
   align-items: center;
-  padding: 5px !important;
+  padding: 5px 10px !important;
   margin: 20px auto !important;
 }
 #word_favoris {
@@ -155,3 +153,18 @@ main * {
 }
 
 /* SECTION COMMENTAIRE */
+@media screen and (max-width: 768px) {
+  #detailMedia {
+    flex-direction: column;
+    height: auto;
+  }
+  #containerImage {
+    justify-content: center;
+  }
+  #info_favoris {
+    width: auto;
+  }
+  #containerImage img {
+    width: 70%;
+  }
+}

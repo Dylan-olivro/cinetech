@@ -167,7 +167,7 @@ ob_start('ob_gzhandler');
         $recupFavoris->execute([$_SESSION['user']['id'], $_GET['id']]);
         $resultFavoris = $recupFavoris->fetch(PDO::FETCH_ASSOC);
 
-        // INSERTION DES FAVORIS
+        // INSERTION ET SUPPRESSION DES FAVORIS
         if (isset($_POST['favoris'])) {
             if (empty($resultFavoris)) {
                 $insertFavoris = $bdd->prepare('INSERT INTO favoris (id_media,id_user,type) VALUES (?,?,?)');
@@ -195,7 +195,6 @@ ob_start('ob_gzhandler');
     <?php
         }
     }
-
     ?>
 </body>
 

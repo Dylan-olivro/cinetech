@@ -1,5 +1,9 @@
+const API_URL = "https://api.themoviedb.org/3/";
+const API_KEY = "3dba613b1899e55a6567cb728761bb94";
+const API_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+
 function showMedia(type) {
-  fetch(`${API.url}${type}/top_rated?api_key=${API.key}&language=en-US&page=1`)
+  fetch(`${API_URL}${type}/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
     .then((response) => {
       return response.json();
     })
@@ -19,7 +23,7 @@ function showMedia(type) {
         imgMedia.className = "d-block w-100";
         captionMedia.className = "carousel-caption d-none d-md-block";
 
-        imgMedia.src = API.image + element.backdrop_path;
+        imgMedia.src = API_IMAGE_URL + element.backdrop_path;
 
         if (type == "movie") {
           titleMedia.textContent = element.title;

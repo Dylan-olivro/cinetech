@@ -13,3 +13,12 @@
   background-color: red;
   display: flex;
 }
+#button {
+  /* display: flex; */
+}
+/* <div id="container">
+<div id="button"></div>
+<div id="film"></div>
+<div id="filmPopular"></div>
+<div id="filmUpcoming"></div>
+<div id="topRatedFilm"></div> */

@@ -1,3 +1,8 @@
+const API_URL = "https://api.themoviedb.org/3/";
+const API_KEY = "3dba613b1899e55a6567cb728761bb94";
+const API_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+
+const detail = document.getElementById("detail");
 const detailMedia = document.getElementById("detailMedia");
 const title_overview = document.getElementById("title_overview");
 const castMedia = document.getElementById("castMedia");
@@ -16,32 +21,90 @@ function getType() {
   return type;
 }
 
-function isEmpty() {
-  if (imgMedia.src == "https://image.tmdb.org/t/p/originalnull") {
-    imgMedia.style.display = "none";
-    // const vide
+function isEmpty(data) {
+  // SI DES INFOS DU FILM SONT MANQUANT
+  if (getType() == "movie") {
+    if (!data.poster_path) {
+      imgMedia.src = "./assets/nondispo.png";
+      imgMedia.style.objectFit = "contain";
+    }
+    if (!data.title) {
+      title.style.display = "none";
+    }
+    if (!data.runtime) {
+      runtime_Status.style.display = "none";
+    }
+    if (!data.vote_average) {
+      voteAverage_Birthday.style.display = "none";
+    }
+    if (!data.budget) {
+      budget_Seasons_Job.style.display = "none";
+    }
+    if (!data.revenue) {
+      revenue_Episodes_PlaceOfBirth.style.display = "none";
+    }
+    if (!data.genres) {
+      genres.style.display = "none";
+    }
+    if (!data.overview) {
+      overview_Biography.textContent = "Aucune description";
+    }
   }
-  if (title.textContent == "") {
-    title.style.display = "none";
+  // SI DES INFOS DE LA SERIE SONT MANQUANT
+  else if (getType() == "tv") {
+    if (!data.poster_path) {
+      imgMedia.src = "./assets/nondispo.png";
+      imgMedia.style.objectFit = "contain";
+    }
+    if (!data.name) {
+      title.style.display = "none";
+    }
+    if (!data.status) {
+      runtime_Status.style.display = "none";
+    }
+    if (!data.vote_average) {
+      voteAverage_Birthday.style.display = "none";
+    }
+    if (!data.number_of_seasons) {
+      budget_Seasons_Job.style.display = "none";
+    }
+    if (!data.number_of_episodes) {
+      revenue_Episodes_PlaceOfBirth.style.display = "none";
+    }
+    if (!data.genres) {
+      genres.style.display = "none";
+    }
+    if (!data.overview) {
+      overview_Biography.textContent = "Aucune description";
+    }
   }
-  if (overview_Biography.textContent == "") {
-    title_overview.style.display = "none";
-    overview_Biography.style.display = "none";
-  }
-  if (runtime_Status.textContent == "") {
-    runtime_Status.style.display = "none";
-  }
-  if (voteAverage_Birthday.textContent == "") {
-    voteAverage_Birthday.style.display = "none";
-  }
-  if (budget_Seasons_Job.textContent == "") {
-    budget_Seasons_Job.style.display = "none";
-  }
-  if (revenue_Episodes_PlaceOfBirth.textContent == "") {
-    revenue_Episodes_PlaceOfBirth.style.display = "none";
-  }
-  if (genres.textContent == "") {
-    genres.style.display = "none";
+  // SI DES INFOS DE LA PERSONNE SONT MANQUANT
+  else {
+    if (!data.profile_path) {
+      imgMedia.src = "./assets/nondispo.png";
+      imgMedia.style.objectFit = "contain";
+    }
+    if (!data.name) {
+      title.style.display = "none";
+    }
+    if (!data.deathday) {
+      runtime_Status.style.display = "none";
+    }
+    if (!data.birthday) {
+      voteAverage_Birthday.style.display = "none";
+    }
+    if (!data.known_for_department) {
+      budget_Seasons_Job.style.display = "none";
+    }
+    if (!data.place_of_birth) {
+      revenue_Episodes_PlaceOfBirth.style.display = "none";
+    }
+    if (!data.gender) {
+      genres.style.display = "none";
+    }
+    if (!data.biography) {
+      overview_Biography.textContent = "Aucune biographie";
+    }
   }
 }
 
@@ -53,11 +116,12 @@ function numberWithSpaces(number) {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 // FETCH POUR LES INFOS
-fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
+fetch(`${API_URL}${getType()}/${getId()}?api_key=${API_KEY}&language=fr-FR`)
   .then((response) => {
     return response.json();
   })
   .then((data) => {
+    console.log(data);
     const imgMedia = document.getElementById("imgMedia");
     const title = document.getElementById("title");
     const overview_Biography = document.getElementById("overview_Biography");
@@ -73,12 +137,9 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
 
     // SI C'EST UN FILM OU UNE SERIE
     if (getType() === "movie" || getType() === "tv") {
-      console.log(detailMedia);
-      document.body.style.backgroundImage = `url(${API.image}${data.backdrop_path})`;
-      // detailMedia.style.backgroundImage = `url(${API.image}${data.backdrop_path})`;
-      // detailMedia.style.backgroundColor = "red";
+      detail.style.backgroundImage = `url(${API_IMAGE_URL}${data.backdrop_path})`;
       // IMAGE
-      imgMedia.src = API.image + data.poster_path;
+      imgMedia.src = API_IMAGE_URL + data.poster_path;
       // TITRE DE LA DIV OVERVIEW
       title_overview.textContent = "Description";
 
@@ -117,21 +178,21 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
       voteAverage_Birthday.textContent = `Note : ${note}/10`;
       // GENRE
       for (let i = 0; i < data.genres.length; i++) {
-        console.log(format_string(i, data.genres.length));
         genres.innerHTML +=
           data.genres[i].name + format_string(i, data.genres.length);
       }
     }
     // SI C'EST UNE PERSONNE
     else {
+      detail.style.backgroundColor = `#000`;
       // TITRE DE LA DIV OVERVIEW
-      title_overview.textContent = "Biography";
+      title_overview.textContent = "Biographie";
       // CAST
       castMedia.style.display = "none";
       // SIMILAIRE
       similarMedia.style.display = "none";
       // PHOTO
-      imgMedia.src = API.image + data.profile_path;
+      imgMedia.src = API_IMAGE_URL + data.profile_path;
       // NAME
       title.textContent = data.name;
       // BIOGRAPHY
@@ -151,7 +212,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
         genres.textContent = "Homme";
       }
     }
-    isEmpty();
+    isEmpty(data);
   })
   .catch((error) => {
     console.log(error);
@@ -160,9 +221,7 @@ fetch(`${API.url}${getType()}/${getId()}?api_key=${API.key}&language=fr-FR`)
 // FETCH POUR LE CAST
 if (getType() === "movie" || getType() === "tv") {
   fetch(
-    `${API.url}${getType()}/${getId()}/credits?api_key=${
-      API.key
-    }&language=fr-FR`
+    `${API_URL}${getType()}/${getId()}/credits?api_key=${API_KEY}&language=fr-FR`
   )
     .then((response) => {
       return response.json();
@@ -181,7 +240,7 @@ if (getType() === "movie" || getType() === "tv") {
             let name = document.createElement("p");
 
             director_producer.href = `detail.php?id=${element.id}&type=person`;
-            img.src = API.image + element.profile_path;
+            img.src = API_IMAGE_URL + element.profile_path;
             name.textContent = element.name;
 
             directorList.append(director_producer);
@@ -199,7 +258,7 @@ if (getType() === "movie" || getType() === "tv") {
             let name = document.createElement("p");
 
             actors.href = `detail.php?id=${element.id}&type=person`;
-            img.src = API.image + element.profile_path;
+            img.src = API_IMAGE_URL + element.profile_path;
             name.textContent = element.name;
 
             actorList.append(actors);
@@ -215,9 +274,7 @@ if (getType() === "movie" || getType() === "tv") {
 // FETCH POUR LES FILM OU SERIE SIMILAIRE
 if (getType() === "movie" || getType() === "tv") {
   fetch(
-    `${API.url}${getType()}/${getId()}/similar?api_key=${
-      API.key
-    }&language=en-US`
+    `${API_URL}${getType()}/${getId()}/similar?api_key=${API_KEY}&language=en-US`
   )
     .then((response) => {
       return response.json();
@@ -230,7 +287,7 @@ if (getType() === "movie" || getType() === "tv") {
           let name = document.createElement("p");
 
           similar.href = `detail.php?id=${element.id}&type=${getType()}`;
-          img.src = API.image + element.poster_path;
+          img.src = API_IMAGE_URL + element.poster_path;
           if (getType() === "movie") {
             name.textContent = element.title;
           } else if (getType() === "tv") {
