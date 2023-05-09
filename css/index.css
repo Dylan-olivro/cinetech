@@ -1,20 +1,14 @@
-img {
-  width: 100px;
-}
-.movie,
-.serie {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-}
 #containerMovie,
 #containerSerie {
   display: flex;
   flex-wrap: wrap;
 }
-#containerMovie {
-  background-color: red;
+#containerMovie div img {
+  height: 20px !important;
 }
 #containerSerie {
   background-color: blue;
+}
+#carouselMovie {
+  margin-bottom: 2%;
 }

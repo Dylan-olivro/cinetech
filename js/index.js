@@ -1,6 +1,6 @@
 const API_URL = "https://api.themoviedb.org/3/";
 const API_KEY = "3dba613b1899e55a6567cb728761bb94";
-const API_IMAGE_URL = "https://image.tmdb.org/t/p/w500/";
+const API_IMAGE_URL = "https://image.tmdb.org/t/p/original/";
 
 function showMedia(type) {
   fetch(`${API_URL}${type}/top_rated?api_key=${API_KEY}&language=en-US&page=1`)

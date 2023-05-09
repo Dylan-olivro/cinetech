@@ -30,10 +30,22 @@ ob_start('ob_gzhandler');
     <main>
         <div id="container">
             <div id="button"></div>
-            <div id="film"></div>
-            <div id="filmPopular"></div>
-            <div id="filmUpcoming"></div>
-            <div id="topRatedFilm"></div>
+            <div id="film">
+                <h4 id="titleGenres"></h4>
+                <div id="filmGenres"></div>
+            </div>
+            <div id="filmPopular">
+                <h4 id="titlePopular"></h4>
+                <div id="filmPopularList"></div>
+            </div>
+            <div id="filmUpcoming">
+                <h4 id="titleUpcoming"></h4>
+                <div id="filmUpcomingList"></div>
+            </div>
+            <div id="topRatedFilm">
+                <h4 id="titleToprated"></h4>
+                <div id="topRatedFilmList"></div>
+            </div>
         </div>
 
     </main>

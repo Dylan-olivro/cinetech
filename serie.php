@@ -30,9 +30,19 @@ ob_start('ob_gzhandler');
     <main>
         <div id="container">
             <div id="button"></div>
-            <div id="serie"></div>
-            <div id="seriePopular"></div>
-            <div id="serietop_rated"></div>
+            <div id="serie">
+                <h4 id="titleGenres"></h4>
+                <div id="serieGenres"></div>
+            </div>
+            <div id="seriePopular">
+                <h4 id="titlePopular"></h4>
+                <div id="seriePopularList"></div>
+            </div>
+            <div id="serietop_rated">
+                <h4 id="titleToprated"></h4>
+                <div id="serieTopratedList"></div>
+
+            </div>
         </div>
 
     </main>

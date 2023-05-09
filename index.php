@@ -29,7 +29,7 @@ ob_start('ob_gzhandler');
 
     <?php
     if (!isset($_SESSION['id'])) {
-        echo '<h1 class="text-center titleIndex">Welcome Inconnu</h1>';
+        echo '<h1 class="text-center titleIndex">Welcome</h1>';
     } else {
         echo '<h1 class="text-center titleIndex">Welcome ' . $_SESSION['username'] . '</h1>';
     }
@@ -37,11 +37,12 @@ ob_start('ob_gzhandler');
 
     <!-- CAROUSEL -->
     <div id="carouselMovie" class="carousel slide">
+        <h2>FILM</h2>
         <div class="carousel-inner" id="containermovie">
             <div class="carousel-item active">
-                <img src="./assets/image-form.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/j.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
+                    <h2>Film les plus populaires</h2>
                 </div>
             </div>
         </div>
@@ -58,11 +59,13 @@ ob_start('ob_gzhandler');
     </div>
 
     <div id="carouselSerie" class="carousel slide">
+        <h2>SERIE</h2>
+
         <div class="carousel-inner" id="containertv">
             <div class="carousel-item active">
-                <img src="./assets/image-form.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/j.jpg" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
+                    <h2>Série les plus populaires</h2>
                 </div>
             </div>
         </div>

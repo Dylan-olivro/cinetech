@@ -1,10 +1,27 @@
-#seriePopular {
+#seriePopularList,
+#serieTopratedList {
   overflow: auto;
-  background-color: red;
   display: flex;
 }
-#serietop_rated {
-  overflow: auto;
-  background-color: red;
+#seriePopularList a,
+#serieTopratedList a {
+  margin-right: 1% !important;
+}
+#seriePopularList a img,
+#serieTopratedList a img {
+  width: 300px;
+  height: 100%;
+}
+#serieGenres {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#serieGenres a {
+  width: 18%;
+  /* text-align: center; */
+  margin: 1% !important;
+}
+#serieGenres a img {
+  width: 100%;
 }
