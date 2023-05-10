@@ -1,3 +1,8 @@
+main {
+  background-color: #000;
+  color: #fff;
+}
+
 #seriePopularList,
 #serieTopratedList {
   overflow: auto;
@@ -24,4 +29,43 @@
 }
 #serieGenres a img {
   width: 100%;
+  height: 100%;
+}
+
+#button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#button a {
+  margin: 1% 2% !important;
+}
+#button button {
+  border-radius: 10px;
+  background-color: red;
+}
+#button button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+/* SCROLL BAR HORIZONTAL */
+/* width */
+#seriePopularList::-webkit-scrollbar,
+#serieTopratedList::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Track */
+#seriePopularList::-webkit-scrollbar-track,
+#serieTopratedList::-webkit-scrollbar-track {
+  background: #000;
+  border-radius: 10px;
+}
+
+/* Handle */
+#seriePopularList::-webkit-scrollbar-thumb,
+#serieTopratedList::-webkit-scrollbar-thumb {
+  background: red;
+  border-radius: 10px;
 }

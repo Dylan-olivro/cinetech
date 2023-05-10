@@ -34,52 +34,55 @@ ob_start('ob_gzhandler');
         echo '<h1 class="text-center titleIndex">Welcome ' . $_SESSION['username'] . '</h1>';
     }
     ?>
+    <main>
 
-    <!-- CAROUSEL -->
-    <div id="carouselMovie" class="carousel slide">
-        <h2>FILM</h2>
-        <div class="carousel-inner" id="containermovie">
-            <div class="carousel-item active">
-                <img src="./assets/j.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Film les plus populaires</h2>
+        <!-- CAROUSEL -->
+        <div id="carouselMovie" class="carousel slide">
+            <h2>FILM</h2>
+            <div class="carousel-inner" id="containermovie">
+                <div class="carousel-item active">
+                    <img src="./assets/j.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Film les plus populaires</h2>
+                    </div>
                 </div>
             </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselMovie" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselMovie" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMovie" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
+        <div id="carouselSerie" class="carousel slide">
+            <h2>SERIE</h2>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselMovie" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <div id="carouselSerie" class="carousel slide">
-        <h2>SERIE</h2>
-
-        <div class="carousel-inner" id="containertv">
-            <div class="carousel-item active">
-                <img src="./assets/j.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h2>Série les plus populaires</h2>
+            <div class="carousel-inner" id="containertv">
+                <div class="carousel-item active">
+                    <img src="./assets/j.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Série les plus populaires</h2>
+                    </div>
                 </div>
             </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSerie" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselSerie" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+    </main>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSerie" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselSerie" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 </body>
 
 </html>

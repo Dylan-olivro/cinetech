@@ -6,6 +6,10 @@
   /* overflow-y: scroll;
   height: 50vh; */
 }
+#result a {
+  text-decoration: none;
+  color: #fff;
+}
 h5 {
   color: #fff !important;
 }
@@ -16,4 +20,9 @@ h5 {
 }
 #username i {
   margin-right: 5px !important;
+}
+@media screen and (max-width: 991px) {
+  #result {
+    top: 330px;
+  }
 }
